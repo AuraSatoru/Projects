@@ -7,51 +7,311 @@
     <title>Animal Fact File</title>
     <style>
         body {
-            background-color: rgb(137, 253, 137);
+            margin: 0;
+            background-color: #f1f7e9;
+            background-image: linear-gradient(rgba(241, 247, 233, 0.8), rgba(241, 247, 233, 0.8)), url("https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1800&q=85");
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
             font-family: Arial, sans-serif;
         }
 
-        .titles {
-            color: rgb(78, 118, 237);
+        .site-header {
+            position: relative;
+            margin: 24px 20px 16px;
+            padding: 28px 90px 24px 24px;
+            border: 3px solid #315c3b;
+            border-radius: 18px;
+            background: rgba(255, 255, 245, 0.9);
+            box-shadow: 0 8px 20px rgba(49, 92, 59, 0.18);
             text-align: center;
-            font-size: 70px;
+        }
+
+        .titles {
+            margin: 0;
+            color: #214d31;
+            text-align: center;
+            font-size: clamp(34px, 6vw, 58px);
+            letter-spacing: 1px;
+            text-shadow: 2px 2px white;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
         }
 
-        .fact-file {
-            background-color: lightyellow;
-            color: darkslategray;
-            width: 260px;
-            padding: 25px;
-            border: 4px solid forestgreen;
-            margin: 30px;
+        .header-subtitle {
+            margin: 8px 0 0;
+            color: #64734a;
+            font-size: 17px;
+            font-weight: bold;
         }
 
-        .animal-name {
-            color: rgb(247, 68, 68);
-            font-size: 22px;
+        nav {
+            width: fit-content;
+            margin: 0 auto 18px;
+            padding: 10px 18px;
+            border-radius: 20px;
+            background-color: #356b45;
+            text-align: center;
+        }
+
+        .panda-section {
+            max-width: 1120px;
+            margin: 28px auto;
+            padding: 20px;
+            border-radius: 18px;
+        }
+
+        .giant-section {
+            border: 3px solid #315c3b;
+            background: rgba(229, 243, 218, 0.92);
+        }
+
+        .red-section {
+            border: 3px solid #a94b35;
+            background: rgba(255, 235, 218, 0.94);
+        }
+
+        .section-heading {
+            margin: 0 0 6px;
+            color: #244d31;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .red-section .section-heading {
+            color: #963d2b;
+        }
+
+        .section-intro {
+            margin: 0 0 14px;
+            color: #52604c;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 8px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #ffe58a;
             text-decoration: underline;
         }
 
+        .fact-files {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .fact-file {
+            width: 280px;
+            padding: 18px;
+            border: 4px solid #4f8f4f;
+            border-radius: 12px;
+            background-color: lightyellow;
+            color: darkslategray;
+            box-shadow: 3px 3px 8px #9bb89a;
+        }
+
+        .animal-name {
+            color: #b73535;
+            font-size: 25px;
+            text-decoration: underline;
+        }
+
+        .animal-photo {
+            display: block;
+            width: 130px;
+            height: 100px;
+            margin: 0 auto 12px;
+            border: 2px solid #356b45;
+            object-fit: cover;
+        }
+
         .cool-fact {
-            color: rgb(189, 59, 232);
+            color: #9a3bb5;
             font-style: italic;
+        }
+
+        .donate-button {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            padding: 11px 18px;
+            border: 0;
+            border-radius: 8px;
+            color: white;
+            background-color: #2563eb;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .donate-button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .donation-modal[hidden] {
+            display: none;
+        }
+
+        .donation-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.62);
+        }
+
+        .donation-card {
+            position: relative;
+            width: 320px;
+            max-width: 100%;
+            padding: 30px;
+            border: 3px solid #93c5fd;
+            border-radius: 18px;
+            color: #172554;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .donation-card h2 {
+            margin-top: 0;
+        }
+
+        .close-donation {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            border: 0;
+            color: #172554;
+            background: transparent;
+            cursor: pointer;
+            font-size: 28px;
+        }
+
+        .donation-qr {
+            width: 180px;
+            height: 180px;
+        }
+
+        .upi-id {
+            margin: 12px;
+            font-weight: bold;
+        }
+
+        .upi-pay-link {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 6px;
+            color: white;
+            background: #2563eb;
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
-    <h1 class="titles">My Animal Fact File</h1>
-    <div class="divider" style="border-radius: 5px; height: 5px; background-color: #000000; margin: 18px auto;">
+    <header class="site-header">
+        <h1 class="titles">My Animal Fact File</h1>
+        <p class="header-subtitle">A closer look at two fascinating kinds of panda</p>
+        <button class="donate-button" id="donateButton" type="button">Donate</button>
+    </header>
+
+    <div class="donation-modal" id="donationModal" role="dialog" aria-labelledby="donationTitle" aria-modal="true"
+        hidden>
+        <div class="donation-card">
+            <button class="close-donation" id="closeDonation" type="button"
+                aria-label="Close donation window">&times;</button>
+            <h2 id="donationTitle">Support the Panda Fact File</h2>
+            <p>Scan the QR code or pay using this UPI ID:</p>
+            <img class="donation-qr" src="qrcode.jpg" alt="UPI QR code for garv1511@fam">
+            <div class="upi-id">garv1511@fam</div>
+        </div>
     </div>
-    <div class="fact-file">
-        <h1 class="animal-name">Red Panda</h1>
-        <p>Type: Mammal</p>
-        <p>Family: Bear</p>
-        <p>Red pandas are small, tree-dwelling mammals with reddish fur and long, striped tails.</p>
-        <p class="cool-fact">Cool fact: Red pandas use their bushy tails as blankets to keep warm.</p>
-    </div>
+
+    <nav aria-label="Animal fact file navigation">
+        <a href="#giant-panda">Giant Panda</a>
+        <a href="#red-panda">Red Panda</a>
+    </nav>
+
+    <section class="panda-section giant-section" id="giant-panda">
+        <h2 class="section-heading">Giant Panda</h2>
+        <p class="section-intro">The big bamboo-loving bears of the panda family.</p>
+        <div class="fact-files">
+          <div class="fact-file">
+            <img class="animal-photo" src="giant panda.jpg" alt="Giant panda">
+            <h2 class="animal-name">Giant Panda</h2>
+            <p><b>Family:</b> Ursidae</p>
+            <p><b>Description:</b> A large black-and-white bear with round ears and strong jaws.</p>
+            <p><b>Diet:</b> Mostly bamboo, with some fruit, roots, and small animals.</p>
+            <p><b>Habitat:</b> Mountain forests in central China.</p>
+            <p class="cool-fact"><b>Cool fact:</b> Giant pandas can spend up to 14 hours a day eating.</p>
+        </div>
+
+                    <div class="fact-file">
+                        <img class="animal-photo" src="dwarf panda.jpg" alt="Dwarf panda">
+                        <h2 class="animal-name">Dwarf Panda</h2>
+                        <p><b>Family:</b> Ursidae</p>
+                        <p><b>Description:</b> An extinct ancient relative of the giant panda, much smaller than today's panda.</p>
+                        <p><b>Diet:</b> It probably ate tough plants and bamboo.</p>
+                        <p><b>Habitat:</b> Ancient forests of southern China.</p>
+                        <p class="cool-fact"><b>Cool fact:</b> Fossil teeth show that it may be one of the oldest panda relatives.</p>
+                    </div>
+                </div>
+        </section>
+
+        <section class="panda-section red-section" id="red-panda">
+                <h2 class="section-heading">Red Panda</h2>
+                <p class="section-intro">Small, nimble tree climbers with beautifully striped tails.</p>
+                <div class="fact-files">
+                    <div class="fact-file">
+            <img class="animal-photo" src="himalayan red panda.jpg" alt="Himalayan red panda">
+            <h2 class="animal-name">Himalayan Red Panda</h2>
+            <p><b>Family:</b> Ailuridae</p>
+            <p><b>Description:</b> The smaller red panda subspecies, with reddish fur and a white-edged face.</p>
+            <p><b>Diet:</b> Bamboo, berries, acorns, insects, and eggs.</p>
+            <p><b>Habitat:</b> Himalayan forests of Nepal, Bhutan, and northern India.</p>
+            <p class="cool-fact"><b>Cool fact:</b> It has a special thumb-like wrist bone for holding bamboo.</p>
+        </div>
+
+                    <div class="fact-file">
+            <img class="animal-photo" src="styan's red panda.jpg" alt="Styan's red panda">
+            <h2 class="animal-name">Styan's Red Panda</h2>
+            <p><b>Family:</b> Ailuridae</p>
+            <p><b>Description:</b> A red panda subspecies with darker fur and a larger body.</p>
+            <p><b>Diet:</b> Bamboo, fruit, leaves, insects, and bird eggs.</p>
+            <p><b>Habitat:</b> Mountain forests of southwestern China and northern Myanmar.</p>
+            <p class="cool-fact"><b>Cool fact:</b> It is also called the Chinese red panda.</p>
+        </div>
+
+        </div>
+    </section>
+
+    <script>
+        const donateButton = document.getElementById("donateButton");
+        const closeDonation = document.getElementById("closeDonation");
+        const donationModal = document.getElementById("donationModal");
+
+        donateButton.addEventListener("click", function () {
+            donationModal.hidden = false;
+        });
+
+        closeDonation.addEventListener("click", function () {
+            donationModal.hidden = true;
+        });
+
+        donationModal.addEventListener("click", function (event) {
+            if (event.target === donationModal) {
+                donationModal.hidden = true;
+            }
+        });
+    </script>
 </body>
 
 </html>
