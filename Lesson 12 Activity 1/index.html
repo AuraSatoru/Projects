@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Pet Page - Buddy the Labrador</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-color: rgb(255, 255, 157);
+        }
+
+        .header {
+            background: #3c7faf;
+            color: #fff;
+            font-size: 12px;
+            padding: 4px 10px;
+        }
+
+        .content {
+            padding: 16px 20px;
+        }
+
+        h1 {
+            color: #f8a223;
+            margin: 0 0 16px 0;
+        }
+
+        h2 {
+            color: #ff9800;
+            font-size: 15px;
+            margin: 18px 0 8px 0;
+        }
+
+        p.desc {
+            font-size: 12px;
+            color: #555;
+            margin: 0 0 8px 0;
+        }
+
+
+        .field {
+            position: static;
+            border: 1px solid #ff9800;
+            border-radius: 3px;
+            padding: 6px 10px;
+            margin-bottom: 6px;
+            font-size: 13px;
+            background: #fff;
+        }
+
+
+        .pet-of-month {
+            position: relative;
+            top: 4px;
+            background: #ffd600;
+
+        }
+
+
+        .adopted-card {
+            position: relative;
+            border: 1px solid #ff9800;
+            border-radius: 3px;
+            padding: 6px 10px;
+            background: #fff;
+            font-size: 13px;
+        }
+
+        .badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #43a847;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+
+
+        .sticky-label {
+            position: sticky;
+            top: 0;
+            background: #ff9800;
+            color: #fff;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 6px 10px;
+            z-index: 2;
+        }
+
+        .scroll-box {
+            max-height: 160px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+        }
+
+        .scroll-box .field {
+            margin: 6px 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="header">My Pet Page - Buddy the Labrador</div>
+
+        <div class="content">
+            <h1>Meet Buddy!</h1>
+
+            <h2>Static</h2>
+            <div class="field">Breed: Labrador</div>
+            <div class="field">Age: 2 years old</div>
+
+            <h2>Relative</h2>
+            <p class="desc">This note shifts right from its normal spot</p>
+            <span class="pet-of-month">Pet of the Month</span>
+
+            <h2>Absolute</h2>
+            <p class="desc">The badge is pinned to the corner of the card</p>
+            <div class="adopted-card">
+                Buddy - Labrador, 2 years
+                <span class="badge">Adopted</span>
+            </div>
+
+            <h2>Sticky</h2>
+            <p class="desc">Scroll down - the label locks at the to</p>
+            <div class="scroll-box">
+                <div class="sticky-label">More Pets Available</div>
+                <div class="field">Luna - Poodle, 1 year</div>
+                <div class="field">Max - German Shepherd,   3 years</div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
