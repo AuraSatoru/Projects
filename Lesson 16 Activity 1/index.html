@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Science Lab</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: rgb(203, 255, 203);
+        }
+
+
+        h1 {
+            color:orange;
+            font-family:Arial, Helvetica, sans-serif;
+            
+        }
+
+        p {
+            font-size: 20px;
+            font-style: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid" style="background-color: rgb(157, 251, 157);" >
+        <div class="container">
+            <h1><b>My Science Lab</b></h1>
+            <p>Welcome to the lab Here are the experiments running. the discoveries made, and how far each project come</p>
+            <button class="btn btn-primary">Chemistry</button>
+            <button class="btn btn-success">Biology</button>
+            <button class="btn btn-warning">Physics</button>
+            <button class="btn btn-danger">Astronomy</button>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Experiments Completed<span class="badge badge-danger">4</span></h2>
+        <p>Chemistry <span class="badge badge-primary">4 experiments</span></p>
+        <p>Biology <span class="badge badge-success">7 experiments</span></p>
+        <p>Physics <span class="badge badge-warning">3 experiments</span></p>
+        <p>Astronomy <span class="badge badge-info">4 experiments</span></p>
+    </div>
+    <br>
+    <div class="container">
+        <h2>Research Progress</h2>
+        <p>Chemistry</p>
+        <div class="progress">
+        <div class="progress-bar bg-primary" style="width:40%" >40%</div>
+        </div>
+        <br>
+        <p>Biology </p>
+        <div class="progress">
+        <div class="progress-bar bg-success" style="width:70%">70%</div>
+        </div>
+        <br>
+        <p>Physics </p>
+        <div class="progress">
+        <div class="progress-bar bg-warning" style="width:30%">30%</div>
+        </div>
+        <br>
+        <p>Astronomy </p>
+        <div class="progress">
+        <div class="progress-bar bg-danger" style="width:40%">40%</div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
