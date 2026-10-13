@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari Carousel & Scrollspy</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style> 
+    .safari-slide {
+      height: 250px;
+      text-align: center;
+      padding-top: 75px;
+      font-size: 40px;
+      background-color: rgb(40, 156, 48);
+    }
+
+    .slide-forest {
+      background-color: rgb(40, 156, 48);
+      color: white;
+    }
+    .slide-ocean {
+      background-color: rgb(67, 183, 183);
+      color: white;
+    }
+    .slide-desert {
+      background-color: rgb(163, 163, 21);
+      color: white;
+    }
+    
+    .container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .safari-section {
+        height: 150px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        background-image: linear-gradient(to right, #f0f0f0, #a0dcff);
+    }
+</style>
+
+</head>
+<body>
+    <div class="carousel slide" id="safariCarousel" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#safariCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#safariCarousel" data-slide-to="1"></li>
+            <li data-target="#safariCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner"> 
+            <div class="carousel-item active safari-slide slide-forest">Forest</div>
+            <div class="carousel-item safari-slide slide-ocean">Ocean</div>
+            <div class="carousel-item safari-slide slide-desert">Desert</div>
+            <a class="carousel-control-prev" href="#safariCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#safariCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        </div>
+        
+
+        <nav id="safariNav" class="navbar navbar-dark bg-dark sticky-top">
+            <span class="navbar-brand ">Safari Explorer</span>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="#forest">Forest</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#ocean">Ocean</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#desert">Desert</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div id="forest" class="safari-section">
+                <h2>Forest Section</h2>
+                <p>Forests are large areas dominated by trees and other woody vegetation. They house a vast majority of the world's
+                    terrestrial biodiversity, including insects, birds, and mammals.</p>
+            </div>
+            <div id="ocean" class="safari-section">
+                <h2>Ocean Section</h2>
+                <p>Oceans cover more than 70% of the Earth's surface and are home to a diverse range of marine life, from tiny plankton to the largest animals on the planet.</p>
+            </div>
+            <div id="desert" class="safari-section">
+                <h2>Desert Section</h2>
+                <p>Deserts are dry regions that receive very little precipitation. Despite their harsh conditions, deserts are home to unique and adapted wildlife.</p>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
