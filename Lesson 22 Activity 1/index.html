@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Phone Contact</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+
+        body {
+            background-color:aliceblue;
+        }
+        h1 {
+            text-align: center;
+            color:red;
+        }
+        p {
+            text-align: center;
+            color:rgb(5, 40, 66);
+            font-size: 30px;
+        }
+        li {
+            color:rgb(53, 16, 16)
+        }
+    </style>
+</head>
+<body>
+    <h1>My Phone Contact</h1>
+    <p>A short subtitle paragraph.</p>
+
+    <div class="container>
+        <div class="card" style="max-width: 400px; margin-left: 30px; margin-top: 30px;">
+            <div class="card-body" style="background-color: rgb(183, 219, 246); border-radius: 20px;">
+                <h4 class="card-title" style="color: rgb(231, 156, 17);">Contact Details</h4>
+                <ul>
+                    <li>Name <br><h5 id="name"></h5></li>
+                    <li>Phone <br><h5 id="phone"></h5></li>
+                    <li>School <br><h5 id="school"></h5></li>
+                    <li>City <br><h5 id="city"></h5></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var myContact = {
+            name: "Garv Lalwani",
+            phone: "7987150666",
+            school: "H.H.E.A",
+            city: "Raipur"
+        }
+
+        document.getElementById("name").innerText = myContact.name;
+            document.getElementById("phone").innerText = myContact.phone;
+
+            document.getElementById("school").innerText = myContact['school'];
+            document.getElementById("city").innerText = myContact['city'];
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
