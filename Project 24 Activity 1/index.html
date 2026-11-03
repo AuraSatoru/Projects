@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Zoo</title>
+
+    <style>
+        h1 {
+            text-align: center;
+            color: orange;
+        }
+        p {
+        text-align: center;
+        color: green;
+        font-size: 20px;
+        }
+
+        .cage-body {
+            border-radius: 2px;
+            border: 3px solid orange;
+            margin: auto;
+            width: 55%;
+            height: 550px;
+            background-color: lightgreen;
+        }
+
+        .cage {
+            border-radius: 20px;
+            border: 3px solid orange;
+            margin-top: 10px;
+            margin-left: 7%;
+            width: 75%;
+            height: 80px;
+        }
+        
+        h2 {
+            margin-left: 20px
+            
+        }
+        
+        .cage-1 {
+            border-radius: 20px;
+            border: 3px solid orange;
+            margin-top: 50px;
+            margin-left: 7%;
+            width: 75%;
+            height: 80px;
+        }
+
+        button {
+            border: 2px solid orange;
+            border-radius: 30px;
+            margin-top: 50px;
+            margin-left: 250px;
+            background-color: orange;
+            color:white;
+            height: 50px;
+            width: 150px;
+        }
+        .end-line {
+            color: green;
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>MY ZOO</h1>
+    <p>Use JavaScript and the DOM to add animals to each cage.....</p>
+    <div class="cage-body">
+        <div class="cage-1">
+            <h2>Cage 1 : <span id="cage-1"></span></h2>
+        </div>
+        <div class="cage">
+            <h2>Cage 2 : <span id="cage-2"></span></h2>
+        </div>
+            <div class="cage">
+                <h2>Cage 3 : <span id="cage-3"></span></h2>
+            </div>
+            <div class="cage">
+                <h2>Cage 4 : <span id="cage-4"></span></h2>
+        </div>
+            <div class="cage">
+                <h2>Animal Total Count: <span id="Animal-Count"></span></h2>
+    </div>
+
+    <button>Open The Zoo</button>
+    <p class="end-line">My Zoo is open</p>
+    <script>
+        var cage1 = "Lion";
+        document.getElementById("cage-1").innerHTML = cage1;
+        var cage2 = "Elephant";
+        document.getElementById("cage-2").innerHTML = cage2;
+        var cage3 = "Penguin";
+        document.getElementById("cage-3").innerHTML = cage3;
+        var cage4 = "Panda";
+        document.getElementById("cage-4").innerHTML = cage4;
+        var totalCount = 4;
+        document.getElementById("Animal-Count").innerHTML = totalCount;
+    </script>
+</body>
+</html>
