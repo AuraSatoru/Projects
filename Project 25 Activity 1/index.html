@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game Profile</title>
+    
+    <style>
+
+        body {
+            background-color: rgb(211, 237, 251)
+        }
+        h1 {
+            color: blue;
+            text-align: center;
+            font-size: 36px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif
+        }    
+        button {
+            margin-left: 45%;
+            font-size: 18px;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+        }
+        .card {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid #1a2a40;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin-left: 37.5%;
+            margin-bottom: 8px;
+            text-align: left;
+            font-size: 15px;
+            color: #000;
+            height: 30px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Game Profile</h1>
+    <button onclick="show()">Show Profile</button>
+    <br><br>
+    <div class="card" id="name">Name:</div>
+    <div class="card" id="score">Score:</div>
+    <div class="card" id="top-score">Top score:</div>
+    <div class="card" id="rank">Rank:</div>
+    <div class="card" id="greeting">Greeting:</div>
+    <div class="card" id="stars">Stars:</div>
+    <div class="card" id="bonus-level">Bonus level:</div>
+    <div class="card" id="team-name">Team Name:</div>
+
+    <script>
+        let name = "Garv";
+        let score = 75;
+        let topScore = false;
+        let bonusLevel = null;
+        let teamName ;
+
+        let rank;
+            if (score >= 80) {
+                rank = "Gold";
+            } else if (score >= 50) {
+                rank = "Silver";
+            } else {
+                rank = "Bronze";
+            }
+
+            let stars = "";
+            let count = 0;
+            while (count < 5) {
+                stars = stars + "* ";
+                count = count + 1;
+            }
+
+            let currentHour = new Date().getHours();
+            let greeting;
+            if (currentHour < 12) {
+                        greeting = "Good Morning";
+            } else if (currentHour < 18) {
+                        greeting = "Good Afternoon";
+            } else {
+                        greeting = "Good Evening";
+            }
+        function show() {document.getElementById("name").innerHTML = "Name: " + name;
+        document.getElementById("score").innerHTML = "Score: " + score;
+        document.getElementById("top-score").innerHTML = "Top score: " + topScore;
+        document.getElementById("rank").innerHTML = "Rank: " + rank;
+        document.getElementById("greeting").innerHTML = "Greeting: " + greeting;
+        document.getElementById("stars").innerHTML = "Stars: " + stars;
+        document.getElementById("bonus-level").innerHTML = "Bonus level: " + bonusLevel;
+        document.getElementById("team-name").innerHTML = "Team Name: " + teamName;
+        }
+    </script>
+</body>
+</html>
