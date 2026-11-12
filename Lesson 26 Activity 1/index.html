@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Planet Cards</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+
+        body {
+            background-color: rgb(234, 234, 234)
+        }
+
+        h1 {
+            text-align: center;
+            color: orange;
+            font-size: 50px;
+        }
+
+        p {
+            text-align: center;
+            color: rgb(51, 114, 240);
+            font-size: 25px;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            color: rgb(48, 116, 0);
+            font-size: 20px;
+            border-radius: 10px;
+            background-color:rgb(255, 238, 139);
+        }
+        .card {
+        border: 1px solid;
+        border-radius: 8px;
+        margin-top: 10px;
+        background-color: #9fc7ff;
+        padding: 10px;
+            }
+    </style>
+</head>
+<body>
+    <h1>My Planet Cards</h1>
+    <p>Use Javascript to build Planet Cards</p>
+    <button onclick="showPlanets()">Show Planets!</button>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div id="card1" class="card"></div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div id="card2" class="card"></div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div id="card3" class="card"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        
+        class Planet {
+            constructor(name, fact) {
+                this.name = name;
+                this.fact = fact;
+            }
+            describe() {
+                return this.name + ": " + this.fact;
+            }
+        }
+
+        const planet1 = new Planet("Earth", "The only known blue planet to support life with water and an atmosphere.");
+        const planet2 = new Planet("Mars", "Known as the Red Planet due to iron oxide on its surface.");
+        const planet3 = new Planet("Saturn", "Famous for its stunning and extensive ring system.");
+
+        function showPlanets() {
+            document.getElementById("card1").innerHTML = planet1.describe();
+            document.getElementById("card2").innerHTML = planet2.describe();
+            document.getElementById("card3").innerHTML = planet3.describe();
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
