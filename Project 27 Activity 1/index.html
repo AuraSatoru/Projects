@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Playlist Sorter</title>
+
+    <style>
+        body {
+            background-color: rgb(255, 207, 255);
+            margin-left: 50px;
+        }
+        .box {
+            background-color: white;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid #4e4e4e;
+            border-radius: 25px;
+        }
+        h2 {
+            color: rgb(131, 13, 131);
+        }
+        h1 {
+            color: rgb(75, 5, 75);
+        }
+
+        button {
+            background-color: rgb(55, 178, 255);
+            color: black;
+            border-radius: 5px;
+        }
+        u {
+            color: rgb(41, 67, 216)
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Playlist Sorter</h1>
+    <p>Sort and label your music playlist using JavaScript array methods</p>
+
+    <div class="box">
+        <h1>Song Names</h1>
+        <button onclick="SortAZ()"><b>Sort A-Z</b></button>
+        <button onclick="SortZA()"><b>Sort Z-A</b></button>
+        <u><h2 id="songs"></h2></u>
+    </div>
+
+    <div class="box">
+        <h1>Play Counts</h1>
+        <button onclick="Leastplayed()"><b>Least played first</b></button>
+        <button onclick="Mostplayed()"><b>Most played first</b></button>
+        <u><h2 id="playcounts"></h2></u>
+    </div>
+
+    <div class="box">
+        <h1><b>Label Every Play Counts</b></h1>
+        <button onclick="Playlabels()">Add Plays Label</button>
+        <u><h2 id="playlabels"></h2></u>
+    </div>
+
+    <script>
+        var songs = ["Udi Udi", "Bairan", "Mene tere hi Bharose"];
+        var playcounts = [52, 27, 43];
+
+        document.getElementById('songs').innerHTML = 'Songs: ' + songs.join(', ');
+        document.getElementById('playcounts').innerHTML = 'Plays: ' + playcounts.join(', ');
+        document.getElementById('playlabels').innerHTML = 'Add Play Labels:';
+
+        function SortAZ() {
+            songs.sort();
+            document.getElementById('songs').innerHTML = 'Songs: ' + songs.join(', ');
+        }
+
+        function SortZA() {
+            songs.sort().reverse();
+            document.getElementById('songs').innerHTML = 'Songs: ' + songs.join(', ');
+        }
+
+        function Leastplayed() {
+            playcounts.sort(function (a, b) { return a - b; });
+            document.getElementById('playcounts').innerHTML = 'Plays: ' + playcounts.join(', ');
+        }
+
+        function Mostplayed() {
+            playcounts.sort(function (a, b) { return b - a; });
+            document.getElementById('playcounts').innerHTML = 'Plays: ' + playcounts.join(', ');
+        }
+
+        function Playlabels() {
+            var labeled = playcounts.map(function (c) { return c + ' plays'; });
+            document.getElementById('playlabels').innerHTML = 'Plays: ' + labeled.join(', ');
+        }
+    </script>
+</body>
+</html>
