@@ -10,17 +10,21 @@
         body {
             background-color: rgb(255, 207, 255);
             margin-left: 50px;
+            font-family: Arial, sans-serif;
         }
+
         .box {
             background-color: white;
             margin: 10px;
-            padding: 10px;
+            padding: 15px;
             border: 2px solid #4e4e4e;
             border-radius: 25px;
         }
+
         h2 {
             color: rgb(131, 13, 131);
         }
+
         h1 {
             color: rgb(75, 5, 75);
         }
@@ -29,9 +33,21 @@
             background-color: rgb(55, 178, 255);
             color: black;
             border-radius: 5px;
+            padding: 6px 12px;
+            margin-right: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
+
+        input {
+            padding: 6px;
+            border-radius: 5px;
+            border: 1px solid #4e4e4e;
+            margin-right: 5px;
+        }
+
         u {
-            color: rgb(41, 67, 216)
+            color: rgb(41, 67, 216);
         }
     </style>
 </head>
@@ -41,57 +57,94 @@
     <p>Sort and label your music playlist using JavaScript array methods</p>
 
     <div class="box">
+        <h1>Add a New Song</h1>
+        <input type="text" id="newSong" placeholder="Song name">
+        <input type="number" id="newPlays" placeholder="Plays">
+        <button id="addBtn">Add Song</button>
+    </div>
+
+    <div class="box">
         <h1>Song Names</h1>
-        <button onclick="SortAZ()"><b>Sort A-Z</b></button>
-        <button onclick="SortZA()"><b>Sort Z-A</b></button>
+        <button id="azBtn">Sort A-Z</button>
+        <button id="zaBtn">Sort Z-A</button>
         <u><h2 id="songs"></h2></u>
     </div>
 
     <div class="box">
         <h1>Play Counts</h1>
-        <button onclick="Leastplayed()"><b>Least played first</b></button>
-        <button onclick="Mostplayed()"><b>Most played first</b></button>
+        <button id="leastBtn">Least played first</button>
+        <button id="mostBtn">Most played first</button>
         <u><h2 id="playcounts"></h2></u>
     </div>
 
     <div class="box">
         <h1><b>Label Every Play Counts</b></h1>
-        <button onclick="Playlabels()">Add Plays Label</button>
+        <button id="labelBtn">Add Plays Label</button>
         <u><h2 id="playlabels"></h2></u>
     </div>
 
     <script>
-        var songs = ["Udi Udi", "Bairan", "Mene tere hi Bharose"];
-        var playcounts = [52, 27, 43];
+        let playlist = [
+            { song: "Udi Udi", plays: 52 },
+            { song: "Bairan", plays: 27 },
+            { song: "Mene tere hi Bharose", plays: 43 }
+        ];
 
-        document.getElementById('songs').innerHTML = 'Songs: ' + songs.join(', ');
-        document.getElementById('playcounts').innerHTML = 'Plays: ' + playcounts.join(', ');
-        document.getElementById('playlabels').innerHTML = 'Add Play Labels:';
+        function showAll() {
+            let songNames = playlist.map(item => item.song);
+            let counts = playlist.map(item => item.plays);
+
+            document.getElementById('songs').innerText = 'Songs: ' + songNames.join(', ');
+            document.getElementById('playcounts').innerText = 'Plays: ' + counts.join(', ');
+            document.getElementById('playlabels').innerText = 'Add Play Labels:';
+        }
+
+        function addSong() {
+            let songInput = document.getElementById('newSong').value.trim();
+            let playsInput = parseInt(document.getElementById('newPlays').value);
+
+            if (songInput !== "" && !isNaN(playsInput)) {
+                playlist.push({ song: songInput, plays: playsInput });
+                document.getElementById('newSong').value = "";
+                document.getElementById('newPlays').value = "";
+                showAll();
+            }
+        }
 
         function SortAZ() {
-            songs.sort();
-            document.getElementById('songs').innerHTML = 'Songs: ' + songs.join(', ');
+            playlist.sort((a, b) => a.song.localeCompare(b.song));
+            showAll();
         }
 
         function SortZA() {
-            songs.sort().reverse();
-            document.getElementById('songs').innerHTML = 'Songs: ' + songs.join(', ');
+            playlist.sort((a, b) => b.song.localeCompare(a.song));
+            showAll();
         }
 
         function Leastplayed() {
-            playcounts.sort(function (a, b) { return a - b; });
-            document.getElementById('playcounts').innerHTML = 'Plays: ' + playcounts.join(', ');
+            playlist.sort((a, b) => a.plays - b.plays);
+            showAll();
         }
 
         function Mostplayed() {
-            playcounts.sort(function (a, b) { return b - a; });
-            document.getElementById('playcounts').innerHTML = 'Plays: ' + playcounts.join(', ');
+            playlist.sort((a, b) => b.plays - a.plays);
+            showAll();
         }
 
         function Playlabels() {
-            var labeled = playcounts.map(function (c) { return c + ' plays'; });
-            document.getElementById('playlabels').innerHTML = 'Plays: ' + labeled.join(', ');
+            let labeled = playlist.map(item => item.song + " (" + item.plays + " plays)");
+            document.getElementById('playlabels').innerText = labeled.join(', ');
         }
+
+        document.getElementById('addBtn').addEventListener('click', addSong);
+        document.getElementById('azBtn').addEventListener('click', SortAZ);
+        document.getElementById('zaBtn').addEventListener('click', SortZA);
+        document.getElementById('leastBtn').addEventListener('click', Leastplayed);
+        document.getElementById('mostBtn').addEventListener('click', Mostplayed);
+        document.getElementById('labelBtn').addEventListener('click', Playlabels);
+
+        showAll();
     </script>
 </body>
+
 </html>
