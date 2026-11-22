@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Magic Word Lab</title>
+
+    <style>
+        .card {
+            background-color:rgb(255, 222, 168);
+            margin: 10px;
+            padding:10px;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+        .card h3 {
+            color:rgb(255, 35, 35);
+            font-size: 25px;
+            margin-left: 10px;
+        } 
+
+        input {
+            padding: 6px;
+            border-radius: 5px;
+            border: 1px solid #4e4e4e;
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+
+        button {
+            background-color: rgb(255, 90, 90);
+            color: black;
+            border-radius: 5px;
+            margin-left: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            
+        }
+
+        .card p {
+            background-color: rgb(255, 222, 168);
+            border: 2px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: rgb(255, 35, 35);
+            text-align: center;
+        }
+        p {
+            text-align: center;
+            font-size: 25px;
+            color:rgb(14, 21, 82)
+        }
+    </style>
+</head>
+<body>
+    <h1>My Magic Word Lab</h1>
+    <p>Discover types, switch them, find and swap words, and catch sneaky errors!</p>
+
+    <div class="card" id="card1">
+        <h3>What type is it?</h3>
+        <button onclick="checktype()">Reveal Types</button>
+        <div id="typeresult"></div>
+    </div>
+    <div class="card" id="card2">
+        <h3>Switch the types</h3>
+        <input type="text" id="typeinput" placeholder="Enter a word">
+        <button onclick="toStr()">Turn into Text</button>
+        <button onclick="toNum()">Turn into Number</button>
+        <p id="convResult" class="output-box">Converted result will appear here.</p>
+    </div>
+    <div class="card" id="card3">
+        <h3>Find and Swap a Word</h3>
+        <input type="text" id="findW" placeholder="Word to find (try: dragon)">
+        <input type="text" id="swapW" placeholder="Swap it with (try: wizard)">
+        <button onclick="doSearch()">Find It!</button>
+        <button onclick="doReplace()">Swap It!</button>
+        <p id="srResult" class="output-box">The real dragons were in China</p>
+    </div>
+
+    <script>
+        var sen = "The real dragons were in China";
+
+        function checktype() {
+            var result = "99 is a " + typeof (99) + "<br>" + '"Garv" is a ' + typeof ("Garv");
+            document.getElementById("typeresult").innerHTML = result;
+        }
+
+        function toStr() {
+            var value = document.getElementById("typeinput").value;
+            var convert = String(value);
+            document.getElementById("convResult").innerHTML = "Value: " + convert + " Type: " + typeof (convert);
+        }
+
+        function toNum() {
+            var value2 = document.getElementById("typeinput").value;
+            var convert2 = Number(value2);
+            document.getElementById("convResult").innerHTML = "Value: " + convert2 + " Type: " + typeof (convert2);
+        }
+
+        function doSearch() {
+            var word = document.getElementById("findW").value;
+            var pos = sen.search(word);
+            var out = document.getElementById("srResult");
+
+            if (word === "") {
+                out.innerHTML = "Please enter a word to search for.";
+            } else if (pos !== -1) {
+                out.innerHTML = 'Found "' + word + '" at position ' + pos + ' in: ' + sen;
+            } else {
+                out.innerHTML = 'Sorry, "' + word + '" was not found in the sentence.';
+            }
+        }
+
+        function doReplace() {
+            var findWord = document.getElementById("findW").value;
+            var swapWord = document.getElementById("swapW").value;
+            sen = sen.replace(findWord, swapWord);
+            document.getElementById("srResult").innerHTML = sen;
+        }
+    </script>
+</body>
+</html>
